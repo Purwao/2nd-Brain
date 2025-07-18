@@ -1,0 +1,54 @@
+{
+  "name": "second-brain-terminal",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "description": "A terminal-style second brain productivity app.",
+  "author": "Purwao",
+
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder ",
+    "postinstall": "electron-rebuild",
+    "start": "cross-env NODE_ENV=production electron .",
+    "electron": "npm run build && electron ."
+  },
+  "build": {
+    "appId": "com.purwao.SBT",
+    "productName": "SecondBrainTerminal",
+    "directories": {
+      "buildResources": "public/assets"
+    },
+    "icon":"SBT",
+    "asarUnpack": [
+      "**/better-sqlite3/**",
+      "db/**"
+    ],
+    "files": [
+      "dist/**/*",
+      "src/**/*",
+      "db/**/*",
+      "package.json",
+      "README.md"
+    ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.0.0",
+    "electron": "^27.0.0",
+    "electron-builder": "^26.0.12",
+    "electron-rebuild": "^3.2.9",
+    "vite": "^6.0.0",
+    "wait-on": "^7.0.0"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.17.2",
+    "better-sqlite3": "^11.10.0",
+    "cross-env": "^7.0.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.8.0"
+  }
+}

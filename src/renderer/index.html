@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Second Brain Terminal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+    html,
+    body,
+    #root,
+    .app-container {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+
+    .title-bar {
+      height: 30px;
+      /* match your title bar height */
+      flex-shrink: 0;
+    }
+
+    /* In global CSS or TerminalView.css */
+    .terminal-view {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+    }
+
+
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      background-color: #F5F5F5;
+
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #00ff00;
+      border: 2px solid #0e8004;
+      cursor: pointer;
+    }
+
+    .crt {
+      background-color: #0d0d0d;
+      color: #00ff00;
+      font-family: 'Fira Code', monospace;
+
+      /* Subtle glow without blur */
+      text-shadow: 0 0 1px #00ff00;
+
+      /* Remove harsh flicker for usability */
+      /* Optional soft vignette (you can remove if distracting) */
+      box-shadow: inset 0 0 50px rgba(0, 255, 0, 0.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="./main.jsx"></script>
+
+</body>
+
+</html>
